@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void main()
+{
+    int number, guess, numberofguess = 1, n;
+    time_t t;
+    srand((unsigned)time(&t));
+    number = rand() % 100; /* random number between 1 and 100 */
+    printf("Guess THE Number CHALLENGE Game between 1 and 100\n");
+    do
+    { // This do-while loop will work until user guesses the correct number by the user
+        if (numberofguess > 9)
+        {
+            printf("\nYou Loose!\n");
+            break;
+        }
+        scanf("%d", &guess); // Input by user
+        if (guess > number)  //when user guesses the number lower than system number
+        {
+            printf("Lower number please!\n");
+            numberofguess++;
+        }
+
+        else if (number > guess) //when user guesses the number greater than system number
+        {
+            printf("Higher number please!\n");
+            numberofguess++;
+        }
+        else
+
+            printf("You guessed the"
+                   " number in %d "
+                   "attempts!\n",
+                   numberofguess); //tells you in how many attempts you guessed
+
+    } while (guess != number);
+}
